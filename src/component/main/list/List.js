@@ -12,9 +12,11 @@ class List extends Component {
                 <div className={"Scroll-view"}>
                     {
                         this.props.animu.map((el) => {
+                            console.log(el);
                             return <Anime
+                                key={el.id}
                                 id={el.id}
-                                averageRating={el.attributes.averageRating}/>
+                                attr={el.attributes}/>
                         })
                     }
                 </div>
