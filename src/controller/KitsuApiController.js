@@ -1,5 +1,7 @@
 class KistuApiController {
 
+    categories = [];
+
     getKistuApiUrl = (endpoint, options) => {
         return  'https://kitsu.io/api/edge/'
             + endpoint
@@ -11,7 +13,7 @@ class KistuApiController {
         url = url.replace(/\[/g, '%5B').replace(/]/g, '%5D');
         return await (await (fetch(url)
                 .then(res => {
-                    res.json().then(r => {console.log(r); return r});
+                    return res.json();
                 })
                 .catch(err => {
                     console.log('Error: ', err)
@@ -34,19 +36,28 @@ class KistuApiController {
     getCategories = async () => {
         let options = '';
         let url = this.getKistuApiUrl('genres', options);
-        /*let result = this.getRequest(url).then(r => {
+
+        this.getRequest(url).then(r => {
             if (r.links.hasOwnProperty('next')) {
-                this.getNextCategories(r.links.next, result)
+                this.categories.push(r);
+                this.getNextCategories(r.links.next)
+            } else {
+                this.categories.push(r)
             }
         });
-        return result;*/
-        return this.getRequest(url);
+
+        return this.categories;
     };
 
     getNextCategories = async (url) => {
-        return this.getRequest(url).then(
-
-        )
+        this.getRequest(url).then( r => {
+            if (r.links.hasOwnProperty('next')) {
+                this.categories.push(r);
+                this.getNextCategories(r.links.next)
+            } else {
+                this.categories.push(r)
+            }
+        });
     }
 }
 
