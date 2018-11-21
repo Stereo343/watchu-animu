@@ -15,11 +15,11 @@ class App extends Component {
 
     componentDidMount() {
         KitsuApiController.popularAnime().then(response => {
-            this.setState({popular: response})
+            this.setState({popular: response.data})
         });
 
         KitsuApiController.recentAnime().then(response => {
-            this.setState({recent: response})
+            this.setState({recent: response.data})
         });
 
         KitsuApiController.getCategories().then(response => {
