@@ -10,7 +10,11 @@ class Aside extends Component {
         return (
             <aside className={"main-aside"}>
                 <ul>
-                    <Category/>
+                    {
+                        this.props.categories.map((el) => {
+                            return <li>coucou</li>
+                        })
+                    }
                 </ul>
             </aside>
         );

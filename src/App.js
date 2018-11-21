@@ -34,6 +34,7 @@ class App extends Component {
             <div>
                 <Header/>
                 <Main
+                    categories={this.state.categories}
                     popularAnimu={this.state.popular}/>
             </div>
         );

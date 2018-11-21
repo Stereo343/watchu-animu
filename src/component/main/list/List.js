@@ -4,8 +4,6 @@ import Anime from './anime/Anime'
 
 class List extends Component {
     render() {
-        console.log(this.props);
-        console.log(this.props.animu.data);
         return (
             <section className="Video-line">
                 <h2>{this.props.title}</h2>

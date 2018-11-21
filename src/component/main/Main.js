@@ -15,7 +15,7 @@ class Main extends Component {
                     <List
                         title={"Les Populaires"} animu={this.props.popularAnimu}/>
                 </div>
-                <Aside/>
+                <Aside categories={this.props.categories}/>
             </main>
         );
     }
