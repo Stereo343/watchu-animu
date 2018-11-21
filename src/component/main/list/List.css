@@ -7,8 +7,29 @@
     overflow: scroll;
 }
 
-.Scroll-view > div {
-    flex-basis: 25%;
-    padding: 0 30px;
+.Scroll-view > section {
+    min-width: 200px;
+    height: 300px;
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #FFF;
+    transition: transform ease 2s;
 }
 
+.Scroll-view > section:hover {
+    tranform: scale(1.2);
+}
+
+.Scroll-view > section h1 {
+    margin: 0;
+}
+
+.Scroll-view > section > div {
+    background-color: rgba(0,0,0, 0.4);
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
