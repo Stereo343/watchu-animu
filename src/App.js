@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import KitsuApiController from './controller/KitsuApiController';
+import Header from './component/header/Header';
+import Main from './component/main/Main';
 
 class App extends Component {
     constructor(props) {
@@ -15,7 +17,7 @@ class App extends Component {
 
     componentDidMount() {
         KitsuApiController.popularAnime().then(response => {
-            this.setState({popular: response})
+            this.setState({popular: response.data})
         });
 
         KitsuApiController.recentAnime().then(response => {
@@ -26,7 +28,9 @@ class App extends Component {
     render() {
         return (
             <div>
-
+                <Header/>
+                <Main
+                    popularAnimu={this.state.popular}/>
             </div>
         );
     }

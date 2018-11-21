@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import Menu from './menu/Menu';
+import Search from  './search/Search';
+import './Header.css'
 
 class Header extends Component {
     constructor(props) {
@@ -7,8 +10,12 @@ class Header extends Component {
 
     render() {
         return (
-            <header>
-
+            <header className="app-header">
+                <ul>
+                    <Menu itemName={'Indexu'}/>
+                    <Menu itemName={'My listu'}/>
+                    <Search/>
+                </ul>
             </header>
         );
     }

@@ -7,7 +7,7 @@ class Aside extends Component {
 
     render() {
         return (
-            <aside>
+            <aside className={"main-aside"}>
 
             </aside>
         );
