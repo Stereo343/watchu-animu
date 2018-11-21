@@ -11,7 +11,7 @@ class KistuApiController {
         url = url.replace(/\[/g, '%5B').replace(/]/g, '%5D');
         return await (await (fetch(url)
                 .then(res => {
-                    return res.json();
+                    res.json().then(r => {console.log(r); return r});
                 })
                 .catch(err => {
                     console.log('Error: ', err)
@@ -30,6 +30,24 @@ class KistuApiController {
         let url = this.getKistuApiUrl('anime', options);
         return this.getRequest(url);
     };
+
+    getCategories = async () => {
+        let options = '';
+        let url = this.getKistuApiUrl('genres', options);
+        /*let result = this.getRequest(url).then(r => {
+            if (r.links.hasOwnProperty('next')) {
+                this.getNextCategories(r.links.next, result)
+            }
+        });
+        return result;*/
+        return this.getRequest(url);
+    };
+
+    getNextCategories = async (url) => {
+        return this.getRequest(url).then(
+
+        )
+    }
 }
 
 const instance = new KistuApiController();
