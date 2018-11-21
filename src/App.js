@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import KitsuApiController from './controller/KitsuApiController';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            popular: [],
+            recent: [],
+        }
+    }
+
+    componentDidMount() {
+        KitsuApiController.popularAnime().then(response => {
+            this.setState({popular: response})
+        });
+
+        KitsuApiController.recentAnime().then(response => {
+            this.setState({recent: response})
+        });
+    }
+
+    render() {
+        return (
+            <div>
+
+            </div>
+        );
+    }
 }
 
 export default App;
