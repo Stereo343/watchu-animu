@@ -6,12 +6,16 @@ class Anime extends Component {
         console.log(this.props.attr);
         return (
             <section style={
-                {backgroundImage: 'url(' +
-                        this.props.attr.coverImage.original + ')',
+                {
+                    backgroundImage: 'url(' +
+                        this.props.attr.posterImage.original + ')',
+                    backgroundSize: 'cover',
                 }
             }>
-                <h1>{this.props.attr.titles.en}</h1>
-                <p>{this.props.attr.averageRating}</p>
+                <div>
+                    <h1>{this.props.attr.titles.en}</h1>
+                    <p>{this.props.attr.averageRating}</p>
+                </div>
             </section>
         );
     }
