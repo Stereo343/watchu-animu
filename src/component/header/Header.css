@@ -1,0 +1,19 @@
+.app-header{
+    background-color: #333;
+    color: #FFF;
+}
+
+.app-header ul{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+
+.app-header ul li{
+    padding: 0 20px;
+}
+
+.app-header ul li a {
+    color: #FFF;
+}

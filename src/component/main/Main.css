@@ -1,0 +1,11 @@
+main {
+    display: flex;
+}
+
+main > div {
+    max-width: 80%;
+}
+
+main > aside {
+    max-width: 20%;
+}

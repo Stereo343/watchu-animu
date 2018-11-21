@@ -1,0 +1,14 @@
+.Video-line {
+    flex-basis: 60%;
+}
+
+.Scroll-view {
+    display: flex;
+    overflow: scroll;
+}
+
+.Scroll-view > div {
+    flex-basis: 25%;
+    padding: 0 30px;
+}
+

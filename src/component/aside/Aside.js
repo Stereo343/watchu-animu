@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Category from './category/Category'
 
 class Aside extends Component {
     constructor(props) {
@@ -8,7 +9,9 @@ class Aside extends Component {
     render() {
         return (
             <aside className={"main-aside"}>
-
+                <ul>
+                    <Category/>
+                </ul>
             </aside>
         );
     }
