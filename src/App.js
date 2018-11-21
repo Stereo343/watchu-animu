@@ -9,6 +9,7 @@ class App extends Component {
         this.state = {
             popular: [],
             recent: [],
+            categories: [],
         }
     }
 
