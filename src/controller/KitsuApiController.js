@@ -1,5 +1,7 @@
 class KistuApiController {
 
+    categories = [];
+
     getKistuApiUrl = (endpoint, options) => {
         return  'https://kitsu.io/api/edge/'
             + endpoint
@@ -30,6 +32,33 @@ class KistuApiController {
         let url = this.getKistuApiUrl('anime', options);
         return this.getRequest(url);
     };
+
+    getCategories = async () => {
+        let options = '';
+        let url = this.getKistuApiUrl('genres', options);
+
+        this.getRequest(url).then(r => {
+            if (r.links.hasOwnProperty('next')) {
+                this.categories.push(r);
+                this.getNextCategories(r.links.next)
+            } else {
+                this.categories.push(r)
+            }
+        });
+
+        return this.categories;
+    };
+
+    getNextCategories = async (url) => {
+        this.getRequest(url).then( r => {
+            if (r.links.hasOwnProperty('next')) {
+                this.categories.push(r);
+                this.getNextCategories(r.links.next)
+            } else {
+                this.categories.push(r)
+            }
+        });
+    }
 }
 
 const instance = new KistuApiController();

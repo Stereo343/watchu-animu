@@ -21,7 +21,11 @@ class App extends Component {
         });
 
         KitsuApiController.recentAnime().then(response => {
-            this.setState({recent: response})
+            this.setState({recent: response.data})
+        });
+
+        KitsuApiController.getCategories().then(response => {
+            this.setState({categories: response})
         });
     }
 
