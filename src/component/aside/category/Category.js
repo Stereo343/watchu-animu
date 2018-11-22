@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 class Category extends Component {
     render() {
         return (
-            <li>
-
+            <li className="categories">
+                {this.props.attr.name}
             </li>
         );
     }
