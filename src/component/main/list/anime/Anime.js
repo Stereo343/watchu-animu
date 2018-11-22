@@ -3,7 +3,6 @@ import './Anime.css'
 
 class Anime extends Component {
     render() {
-        console.log(this.props.attr);
         return (
             <section style={
                 {

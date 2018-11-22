@@ -4,10 +4,6 @@ import Search from  './search/Search';
 import './Header.css'
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <header className="app-header">
